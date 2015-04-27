@@ -1,0 +1,58 @@
+// All Sass tools and helpers.
+@import "bourbon/bourbon";
+@import "neat/neat";
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,700,300);
+
+body {
+	background: whitesmoke;
+	font-family: 'Raleway', sans-serif;
+}
+
+.page {
+	@include outer-container();
+	padding: rem(80) 0;
+}
+
+.intro, .insta-results {
+	@include outer-container();
+}
+
+.intro {
+	margin-bottom: rem(50);
+}
+
+.intro-content {
+	@include span-columns(4);
+	@include shift(4);
+}
+
+header h1 {
+	text-align: center;
+	font-size: rem(30);
+	font-family: 'Raleway', sans-serif;
+	font-weight: 700;
+	margin-bottom: rem(70);
+}
+
+.block {
+	@include span-columns(3);
+	@include omega(4n);
+	margin-bottom: rem(30);
+}
+
+.result-message {
+	margin: rem(30) 0;
+	font-size: rem(18);
+	color: rgb(51, 143, 210);
+	font-weight: 400;
+	text-align: center;
+}
+
+button.secondary {
+	background-color: #dadada;
+	color: #444;
+}
+
+.button-wrap {
+	text-align: center;
+}
