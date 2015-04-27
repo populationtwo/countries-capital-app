@@ -13,6 +13,8 @@ body {
 	@include outer-container();
 	padding: rem(80) 0;
 }
+
+// Intro
 .hero {
   $base-border-radius: 3px !default;
   $action-color: #477DCA !default;
@@ -74,6 +76,7 @@ body {
   }
 }
 
+// Countries list
 .table-minimal {
 	$base-border-color: gainsboro !default;
 	$base-border-radius: 3px !default;
@@ -144,5 +147,27 @@ body {
 				}
 			}
 		}
+	}
+}
+
+
+
+// Country detail
+.country-detail {
+	@include outer-container;
+}
+.country-detail-inner {
+	width: 65.88078%;
+	margin: 0 auto;
+	background: #fff;
+}
+.country-detail-image {
+
+	.map {
+		@include span-columns(6);
+	}
+	.flag {
+		@include span-columns(6);
+		@include omega();
 	}
 }

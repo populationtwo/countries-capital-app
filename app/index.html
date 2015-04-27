@@ -12,8 +12,7 @@
 
 <div class="page">
 
-
-	<div class="hero">
+	<div class="hero intro">
 		<div class="hero-inner">
 			<a href="" class="hero-logo"><img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png
 " alt="Logo Image"></a>
@@ -28,60 +27,101 @@
 		</div>
 	</div>
 
-	<table class="table-minimal">
-		<thead>
-		<tr>
-			<th>Header Cell 1</th>
-			<th>Header Cell 2</th>
-			<th>Header Cell 3</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-			<td>Row 1 Cell 1</td>
-			<td>Row 1 Cell 2</td>
-			<td>
-				<button>Confirm</button>
-				<button>Reject</button>
-			</td>
-		</tr>
-		<tr>
-			<td>Row 2 Cell 1</td>
-			<td>Row 2 Cell 2</td>
-			<td>
-				<button>Confirm</button>
-				<button>Reject</button>
-			</td>
-		</tr>
-		<tr>
-			<td>Row 3 Cell 1</td>
-			<td>Row 3 Cell 2</td>
-			<td>
-				<button>Confirm</button>
-				<button>Reject</button>
-			</td>
-		</tr>
-		<tr>
-			<td>Row 4 Cell 1</td>
-			<td>Row 4 Cell 2</td>
-			<td>
-				<button>Confirm</button>
-				<button>Reject</button>
-			</td>
-		</tr>
-		</tbody>
-	</table>
+	<div class="countries-list">
+		<table class="table-minimal">
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Country Code</th>
+				<th>Capital</th>
+				<th>Area in km2</th>
+				<th>Population</th>
+				<th>Continent</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>Afganistan</td>
+				<td>AF</td>
+				<td>Kabul</td>
+				<td>547500</td>
+				<td>2912286</td>
+				<td>AS</td>
+			</tr>
+			<tr>
+				<td>Afganistan</td>
+				<td>AF</td>
+				<td>Kabul</td>
+				<td>547500</td>
+				<td>2912286</td>
+				<td>AS</td>
+			</tr>
+			<tr>
+				<td>Afganistan</td>
+				<td>AF</td>
+				<td>Kabul</td>
+				<td>547500</td>
+				<td>2912286</td>
+				<td>AS</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
 
+	<!-- Country Detail -->
 	<div class="country-detail">
+		<div class="country-detail-inner">
+
+
 		<h2>USA</h2>
 
+		<div class="country-detail-image">
+			<div class="map">
+				<figure>
+					<img src="http://placehold.it/400x300" alt="" />
+				</figure>
+			</div>
+			<div class="flag">
+				<figure>
+					<img src="http://placehold.it/400x300" alt="" />
+				</figure>
+			</div>
+		</div>
+
+		<table class="">
+			<tbody>
+			<tr>
+				<td>Population of Country</td>
+				<td>313000000</td>
+			</tr>
+			<tr>
+				<td>Area</td>
+				<td>9147000 square km</td>
+			</tr>
+			<tr>
+				<td>Capital</td>
+				<td>Washington DC</td>
+			</tr>
+			<tr>
+				<td>Population of Capital</td>
+				<td>632.233</td>
+			</tr>
+			<tr>
+				<td>3 neighbors</td>
+				<td><a href="">Canada</a>, <a href="">Cuba</a>, <a href="">Mexico</a></td>
+			</tr>
+			</tbody>
+		</table>
+		</div>
 
 	</div>
 
 	<div ng-view></div>
 
-	<button>Home</button>
-	<button>Browse Countries</button>
+	<div class="button-wrapper">
+		<button>Home</button>
+		<button>Browse Countries</button>
+	</div>
 
 </div>
 <script src="./bower_components/jquery/dist/jquery.js"></script>

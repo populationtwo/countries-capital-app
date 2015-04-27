@@ -306,3 +306,33 @@ body {
           .table-minimal tbody td button {
             margin-bottom: 0;
             width: auto; } }
+
+.country-detail {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  .country-detail::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+.country-detail-inner {
+  width: 65.88078%;
+  margin: 0 auto;
+  background: #fff; }
+
+.country-detail-image .map {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%; }
+  .country-detail-image .map:last-child {
+    margin-right: 0; }
+.country-detail-image .flag {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  margin-right: 0; }
+  .country-detail-image .flag:last-child {
+    margin-right: 0; }
