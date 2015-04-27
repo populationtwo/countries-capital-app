@@ -1,19 +1,89 @@
 <!DOCTYPE html>
-<html lang='en' ng-app="ccApp">
+<html lang='en' ng-app="">
 <head>
-<link rel="stylesheet" type="text/css" href="./css/main.css" />
-<meta charset='UTF-8' />
-<title>Countries Capital App</title>
+	<meta charset='UTF-8' />
+	<title>Countries &amp; Capital App</title>
+
+	<link rel="stylesheet" type="text/css" href="./css/main.css" />
+
+
 </head>
+<body ng-app="ccApp" ng-controller="ccController">
 
-<body class="">
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+<div class="page">
 
+
+	<div class="hero">
+		<div class="hero-inner">
+			<a href="" class="hero-logo"><img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png
+" alt="Logo Image"></a>
+
+			<div class="hero-copy">
+				<h1>Countries and Capital</h1>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate quae itaque tempore laborum
+					doloremque pariatur reprehenderit hic assumenda, ut quas delectus neque voluptatibus quasi ducimus
+					laudantium nostrum quod ullam animi.</p>
+			</div>
+		</div>
+	</div>
+
+	<table class="table-minimal">
+		<thead>
+		<tr>
+			<th>Header Cell 1</th>
+			<th>Header Cell 2</th>
+			<th>Header Cell 3</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>Row 1 Cell 1</td>
+			<td>Row 1 Cell 2</td>
+			<td>
+				<button>Confirm</button>
+				<button>Reject</button>
+			</td>
+		</tr>
+		<tr>
+			<td>Row 2 Cell 1</td>
+			<td>Row 2 Cell 2</td>
+			<td>
+				<button>Confirm</button>
+				<button>Reject</button>
+			</td>
+		</tr>
+		<tr>
+			<td>Row 3 Cell 1</td>
+			<td>Row 3 Cell 2</td>
+			<td>
+				<button>Confirm</button>
+				<button>Reject</button>
+			</td>
+		</tr>
+		<tr>
+			<td>Row 4 Cell 1</td>
+			<td>Row 4 Cell 2</td>
+			<td>
+				<button>Confirm</button>
+				<button>Reject</button>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+
+	<div class="country-detail">
+		<h2>USA</h2>
+
+
+	</div>
+
+	<div ng-view></div>
+
+	<button>Home</button>
+	<button>Browse Countries</button>
+
+</div>
 <script src="./bower_components/jquery/dist/jquery.js"></script>
 <script src="./bower_components/angular/angular.js"></script>
 <script src="./bower_components/angular-route/angular-route.js"></script>
