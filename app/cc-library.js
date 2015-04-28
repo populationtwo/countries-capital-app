@@ -9,20 +9,6 @@ angular.module( 'ccLibrary', [] )
 			function getCcList(){
 				var path = $interpolate(GEONAMES_API_PREFIX + COUNTRY_INFO)({username: 'hanoman_sakti'});
 				return $http.get(path, {cache:true})
-					//.success(function(data) {
-					//	if(countriesArr === null){
-					//		countriesArr = [];
-					//		angular.forEach(data.geonames, function(country){
-					//			countriesArr[country.countryCode] = country;
-					//		});
-					//	}
-					//	console.log('get countries success')
-					//	console.log(countriesArr)
-					//})
-					//.error(function(data, status){
-					//	console.log('Error status: ' + status);
-					//	$location.path('/error');
-					//});
 			}
 
 			return {
