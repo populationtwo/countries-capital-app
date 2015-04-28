@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang='en' ng-app="">
+<html lang='en'>
 <head>
 	<meta charset='UTF-8' />
 	<title>Countries &amp; Capital App</title>
@@ -8,113 +8,12 @@
 
 
 </head>
-<body ng-app="ccApp" ng-controller="ccController">
+<body ng-app="myApp" >
 
-<div class="page">
-
-	<div class="hero intro">
-		<div class="hero-inner">
-			<a href="" class="hero-logo"><img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png
-" alt="Logo Image"></a>
-
-			<div class="hero-copy">
-				<h1>Countries and Capital</h1>
-
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate quae itaque tempore laborum
-					doloremque pariatur reprehenderit hic assumenda, ut quas delectus neque voluptatibus quasi ducimus
-					laudantium nostrum quod ullam animi.</p>
-			</div>
-		</div>
-	</div>
-
-	<div class="countries-list">
-		<table class="table-minimal">
-			<thead>
-			<tr>
-				<th>Name</th>
-				<th>Country Code</th>
-				<th>Capital</th>
-				<th>Area in km2</th>
-				<th>Population</th>
-				<th>Continent</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-				<td>Afganistan</td>
-				<td>AF</td>
-				<td>Kabul</td>
-				<td>547500</td>
-				<td>2912286</td>
-				<td>AS</td>
-			</tr>
-			<tr>
-				<td>Afganistan</td>
-				<td>AF</td>
-				<td>Kabul</td>
-				<td>547500</td>
-				<td>2912286</td>
-				<td>AS</td>
-			</tr>
-			<tr>
-				<td>Afganistan</td>
-				<td>AF</td>
-				<td>Kabul</td>
-				<td>547500</td>
-				<td>2912286</td>
-				<td>AS</td>
-			</tr>
-			</tbody>
-		</table>
-	</div>
-
-	<!-- Country Detail -->
-	<div class="country-detail">
-		<div class="country-detail-inner">
+<div class="page" ng-controller="ccController">
 
 
-		<h2>USA</h2>
 
-		<div class="country-detail-image">
-			<div class="map">
-				<figure>
-					<img src="http://placehold.it/400x300" alt="" />
-				</figure>
-			</div>
-			<div class="flag">
-				<figure>
-					<img src="http://placehold.it/400x300" alt="" />
-				</figure>
-			</div>
-		</div>
-
-		<table class="">
-			<tbody>
-			<tr>
-				<td>Population of Country</td>
-				<td>313000000</td>
-			</tr>
-			<tr>
-				<td>Area</td>
-				<td>9147000 square km</td>
-			</tr>
-			<tr>
-				<td>Capital</td>
-				<td>Washington DC</td>
-			</tr>
-			<tr>
-				<td>Population of Capital</td>
-				<td>632.233</td>
-			</tr>
-			<tr>
-				<td>3 neighbors</td>
-				<td><a href="">Canada</a>, <a href="">Cuba</a>, <a href="">Mexico</a></td>
-			</tr>
-			</tbody>
-		</table>
-		</div>
-
-	</div>
 
 	<div ng-view></div>
 
@@ -127,7 +26,8 @@
 <script src="./bower_components/jquery/dist/jquery.js"></script>
 <script src="./bower_components/angular/angular.js"></script>
 <script src="./bower_components/angular-route/angular-route.js"></script>
-<script src="./bower_components/angular-animate/angular-animate.js"></script>
+<!--<script src="./bower_components/angular-animate/angular-animate.js"></script>-->
 <script src="./app.js"></script>
+
 </body>
 </html>
