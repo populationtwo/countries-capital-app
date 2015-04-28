@@ -1,4 +1,3 @@
-
 <div class="countries-list">
 	<table class="table-minimal">
 		<thead>
@@ -6,35 +5,19 @@
 			<th>Name</th>
 			<th>Country Code</th>
 			<th>Capital</th>
-			<th>Area in km2</th>
+			<th>Area in km<sup>2</sup></th>
 			<th>Population</th>
 			<th>Continent</th>
 		</tr>
 		</thead>
 		<tbody>
-		<tr>
-			<td>Afganistan</td>
-			<td>AF</td>
-			<td>Kabul</td>
-			<td>547500</td>
-			<td>2912286</td>
-			<td>AS</td>
-		</tr>
-		<tr>
-			<td>Afganistan</td>
-			<td>AF</td>
-			<td>Kabul</td>
-			<td>547500</td>
-			<td>2912286</td>
-			<td>AS</td>
-		</tr>
-		<tr>
-			<td>Afganistan</td>
-			<td>AF</td>
-			<td>Kabul</td>
-			<td>547500</td>
-			<td>2912286</td>
-			<td>AS</td>
+		<tr ng-repeat="country in countries">
+			<td>{{country.countryName}}</td>
+			<td>{{country.countryCode}}</td>
+			<td>{{country.capital}}</td>
+			<td>{{country.areaInSqKm | number: 0}}</td>
+			<td>{{country.population | number: 0}}</td>
+			<td>{{country.continentName}}</td>
 		</tr>
 		</tbody>
 	</table>

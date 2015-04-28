@@ -6,7 +6,17 @@ viewsModule.config( function ($routeProvider) {
 		} )
 } )
 
-viewsModule.controller('listController', function(){
+viewsModule.controller('listController', function($scope, $rootScope, $location, ccCountries){
 
-	console.log('list controller')
+	var view = $scope;
+
+	$rootScope.isLoading = true;
+	ccCountries.getCcList().then(function(data){
+		view.countries = data.data.geonames;
+		$rootScope.isLoading = false;
+	});
+
+	view.setSelected = function(){
+		$location.path('/countries/' + this.country.countryCode);
+	};
 })
