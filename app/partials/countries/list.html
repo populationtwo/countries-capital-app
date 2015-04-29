@@ -1,31 +1,32 @@
-<div class="countries-list" ng-controller="countriesDataCtrl">
-<br>
+<div class="countries-list">
+	<br>
+
 	<div class="col-sm-1"></div>
 	<div class="col-sm-10">
 		<div class="row fixed-table">
 			<div class="input-group">
 				<label for="filter">Filter:&nbsp;</label><input id="filter" type="text" placeholder="Enter filter text">
 			</div>
-				<table class="table-minimal" id="mytable">
-					<thead class="header">
-					<th>Name</th>
-					<th>Capital</th>
-					<th>Area (km^2)</th>
-					<th>Population</th>
-					<th>Continent</th>
-					<th>Currency</th>
-					</thead>
-					<tbody class="searchable">
-					<tr ng-repeat="country in countries | orderBy:'countryName'" ui-sref="countryDetail({countryCode: country.countryCode})">
-						<td id={{country.countryCode}}>{{country.countryName}}</td>
-						<td>{{country.capital}}</td>
-						<td class="text-right">{{country.areaInSqKm | number}}</td>
-						<td class="text-right">{{country.population | number}}</td>
-						<td>{{country.continentName}}</td>
-						<td class="text-center">{{country.currencyCode}}</td>
-					</tr>
-					</tbody>
-				</table>
+			<table class="table-minimal" id="mytable">
+				<thead class="header">
+				<th>Name</th>
+				<th>Capital</th>
+				<th>Area (km^2)</th>
+				<th>Population</th>
+				<th>Continent</th>
+				<th>Currency</th>
+				</thead>
+				<tbody class="searchable">
+				<tr ng-repeat="country in countries | orderBy:'countryName'" ui-sref="countryDetail({countryCode: country.countryCode})">
+					<td id={{country.countryCode}}>{{country.countryName}}</td>
+					<td>{{country.capital}}</td>
+					<td class="text-right">{{country.areaInSqKm | number}}</td>
+					<td class="text-right">{{country.population | number}}</td>
+					<td>{{country.continentName}}</td>
+					<td class="text-center">{{country.currencyCode}}</td>
+				</tr>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </div>

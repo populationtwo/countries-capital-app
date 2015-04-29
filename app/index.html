@@ -1,44 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- build:css ./assets/combined.css -->
 	<link rel="stylesheet" href="./css/main.css">
 
-	<!-- endbuild -->
 	<meta charset='UTF-8'>
 	<title>Countries &amp; Capitals</title>
 </head>
-<body ng-app="cncApp" ng-controller="appCtrl">
-
+<body ng-app="ccApp" ng-controller="appCtrl">
 
 <div class="page">
 
 	<div ui-view></div>
 
-	<div class="button-wrapper" >
-		<!--<ul>-->
-			<!--<li ng-if="nav.current != '/'"><a href="#/">Home</a></li>-->
-			<!--<li ng-if="nav.current != '/countries'"><a href="#/countries">Browse Countries</a></li>-->
-		<!--</ul>-->
-
-		<button type="button" class="btn btn-default" ng-hide="$state.current.name == 'home'" ng-click="$state.go('home')">Home</button>
-		<button id="BrowseCountries" type="button" class="btn btn-default" ng-hide="$state.current.name == 'countries'" ng-click="$state.go('countries')">Browse Countries</button>
+	<div class="button-wrapper">
+		<ul>
+			<li ng-hide="$state.current.name == 'home'" ng-click="$state.go('home')"><a href="#/">Home</a></li>
+			<li ng-hide="$state.current.name == 'countries'" ng-click="$state.go('countries')"><a href="#/countries">Browse
+				Countries</a></li>
+		</ul>
 	</div>
 
 </div>
 
-<!-- build:js ./assets/combined.js -->
+<!-- build -->
 <script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
 <script type="text/javascript" src="./bower_components/angular-animate/angular-animate.min.js"></script>
 <script type="text/javascript" src="./bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-<script type="text/javascript" src="./bower_components/angular-route/angular-route.js"></script>
 <script type="text/javascript" src="./app.js"></script>
-<script type="text/javascript" src="./cc-nav.js"></script>
 <script type="text/javascript" src="./cc-library.js"></script>
 <script type="text/javascript" src="./partials/countries/list.js"></script>
 <script type="text/javascript" src="./partials/country/detail.js"></script>
+
 <!-- endbuild -->
-<!--  // <script type="text/javascript" src="./partials/countries/table-fixed-header.js"></script> -->
 </body>
 </html>

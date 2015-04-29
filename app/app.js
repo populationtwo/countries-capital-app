@@ -1,17 +1,11 @@
-var myApp = angular.module('cncApp', ['ui.router', 'ngAnimate']);
-myApp.constant('VERSION', "1.4");
-myApp.run( ['$rootScope', '$state', '$stateParams',
-	function($rootScope, $state, $stateParams) {
-		//This initialization function enables button hiding.
-		$rootScope.$state = $state;
-		$rootScope.$stateParams = $stateParams;
-	}]);
-myApp.config( ['$stateProvider', '$urlRouterProvider',
+var ccApp = angular.module('ccApp', ['ui.router', 'ngAnimate']);
+
+ccApp.config( ['$stateProvider', '$urlRouterProvider',
 	function($stateProvider, $urlRouterProvider) {
-		//
+
 		// For any unmatched url, redirect to /
 		$urlRouterProvider.otherwise("/");
-		//
+
 		//State definitions
 		$stateProvider
 			.state("home", {
@@ -20,29 +14,41 @@ myApp.config( ['$stateProvider', '$urlRouterProvider',
 			})
 			.state("countries", {
 				url: "/countries",
-				templateUrl: "partials/countries/list.html"
+				templateUrl: "partials/countries/list.html",
+				controller: 'listController'
 			})
 			.state("countryDetail", {
 				url: "/countries/:countryCode",
 				templateUrl: "partials/country/detail.html",
-				controller: 'detailCtrl'
+				controller: 'detailController'
 			});
 	}]);
-myApp.controller('appCtrl', ['cncData', '$scope',
+
+ccApp.controller('appCtrl', ['cncData', '$scope',
 	function(cncData, $scope){
 		//This controller instantiates cncData which causes the
 		//initial GET of the countries data.
 		$scope.version = cncData.version;
-		document.getElementById("BrowseCountries").focus();
 	}]);
-myApp.factory('cncData', ['VERSION', 'geonamesFactory',
-	function(VERSION, geonamesFactory) {
+ccApp.factory('cncData', ['ccLibraryService',
+	function(ccLibraryService) {
 		var Data = {};
-		Data.version = VERSION;
-		//Evaluate the getCountriesInfo function immediately.
-		Data.countries = geonamesFactory.getCountriesInfo();
+
+		//Evaluate the getCountries function immediately.
+		Data.countries = ccLibraryService.getCountries();
+
 		//These other methods require parameters.
-		Data.getCapitalInfo = geonamesFactory.getCapitalInfo;
-		Data.getNeighbors = geonamesFactory.getNeighbors;
+		Data.getCapital = ccLibraryService.getCapital;
+		Data.getNeighbors = ccLibraryService.getNeighbors;
+
 		return Data;
 	}]);
+
+
+ccApp.run( ['$rootScope', '$state', '$stateParams',
+	function($rootScope, $state, $stateParams) {
+		//This initialization function enables button hiding.
+		$rootScope.$state = $state;
+		$rootScope.$stateParams = $stateParams;
+	}]);
+

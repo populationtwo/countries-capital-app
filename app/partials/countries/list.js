@@ -1,4 +1,4 @@
-angular.module('cncApp').controller('countriesDataCtrl',
+angular.module('ccApp').controller('listController',
 	['$scope', 'cncData', '$q',
 		function($scope, cncData, $q){
 			var toString = Object.prototype.toString;
@@ -12,6 +12,7 @@ angular.module('cncApp').controller('countriesDataCtrl',
 				}
 				$scope.countries = cncData.countries;
 			});
+
 			//Source: Filipp Lepalaan - http://stackoverflow.com/questions/14713622/twitter-bootstrap-row-filter-search-box
 			$(document).ready(function () {
 				(function ($) {
@@ -25,5 +26,6 @@ angular.module('cncApp').controller('countriesDataCtrl',
 				}(jQuery));
 			});
 			//Set focus onto input.
+
 			document.getElementById("filter").focus();
 		}]);
