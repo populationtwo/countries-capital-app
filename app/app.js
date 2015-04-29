@@ -45,10 +45,11 @@ ccApp.factory('cncData', ['ccLibraryService',
 	}]);
 
 
-ccApp.run( ['$rootScope', '$state', '$stateParams',
-	function($rootScope, $state, $stateParams) {
+ccApp.run( ['$rootScope', '$state', '$stateParams', '$location', '$timeout',
+	function($rootScope, $state, $stateParams, $location, $timeout) {
 		//This initialization function enables button hiding.
 		$rootScope.$state = $state;
 		$rootScope.$stateParams = $stateParams;
 	}]);
+
 

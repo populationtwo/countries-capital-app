@@ -1,7 +1,8 @@
 angular.module( 'ccApp' ).controller( 'listController',
-	['$scope', 'cncData', '$q',
-		function ($scope, cncData, $q) {
+	['$scope', 'cncData', '$q', '$rootScope',
+		function ($scope, cncData, $q, $rootScope) {
 			var toString = Object.prototype.toString;
+			$rootScope.isLoading = true;
 			//Bind the countries data onto $scope when it becomes available:
 			$q.when( cncData.countries ).then( function (result) {
 				//If cncData.countries is still a promise...
@@ -11,6 +12,8 @@ angular.module( 'ccApp' ).controller( 'listController',
 					cncData.index = result.index;
 				}
 				$scope.countries = cncData.countries;
+
+				$rootScope.isLoading = false;
 			} );
 
 

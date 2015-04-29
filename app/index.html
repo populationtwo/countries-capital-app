@@ -6,11 +6,14 @@
 	<meta charset='UTF-8'>
 	<title>Countries &amp; Capitals</title>
 </head>
-<body ng-app="ccApp" ng-controller="appCtrl">
+<body ng-app="ccApp" ng-controller="appCtrl" ng-class="{loading: isLoading}">
 
-<div class="page">
+<div class="page"  >
 
-	<div ui-view></div>
+	<div class="view-wrapper">
+		<div ui-view class="animate-view"></div>
+
+	</div>
 
 	<div class="button-wrapper">
 		<ul>
