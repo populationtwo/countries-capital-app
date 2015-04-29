@@ -23,10 +23,10 @@ body {
   $hero-background-bottom: #20392B;
   $hero-color: white;
   $gradient-angle: 10deg;
-  $hero-image: 'https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png';
+  $hero-image: '';
 
   @include background(url($hero-image), linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);
-  background-color: #324766;
+  background-color: #C0C0C0;
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -160,6 +160,11 @@ body {
 	width: 65.88078%;
 	margin: 0 auto;
 	background: #fff;
+	padding: rem(20) rem(30);
+	h2 {
+		text-align: center;
+		font-size: rem(30);
+	}
 }
 .country-detail-image {
 
@@ -171,3 +176,34 @@ body {
 		@include omega();
 	}
 }
+
+.button-wrapper {
+	text-align: center;
+	padding: rem(30) 0;
+	ul li {
+		display: inline-block;
+	}
+}
+// Buttons
+.button {
+	display: inline-block;
+	-webkit-transition: all 0.15s ease-out 0s;
+	-moz-transition: all 0.15s ease-out 0s;
+	transition: all 0.15s ease-out 0s;
+	background: #40a9b8;
+	border-radius: 6px;
+	color: white;
+	display: inline-block;
+	font-size: 0.875em;
+	font-weight: bold;
+	letter-spacing: 1px;
+	margin-bottom: 1em;
+	padding: rem(15) rem(25);
+	text-align: center;
+	text-transform: uppercase;
+	&:hover {
+		background: #257D8B;
+		color: #FFF;
+	}
+}
+

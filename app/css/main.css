@@ -190,9 +190,9 @@ body {
     display: table; }
 
 .hero {
-  background: url('https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png'), -webkit-linear-gradient(10deg, #20392B, #7F99BE), no-repeat #7F99BE scroll;
-  background: url('https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png'), linear-gradient(10deg, #20392B, #7F99BE), no-repeat #7F99BE scroll;
-  background-color: #324766;
+  background: url(''), -webkit-linear-gradient(10deg, #20392B, #7F99BE), no-repeat #7F99BE scroll;
+  background: url(''), linear-gradient(10deg, #20392B, #7F99BE), no-repeat #7F99BE scroll;
+  background-color: #C0C0C0;
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -319,7 +319,11 @@ body {
 .country-detail-inner {
   width: 65.88078%;
   margin: 0 auto;
-  background: #fff; }
+  background: #fff;
+  padding: 1.25rem 1.875rem; }
+  .country-detail-inner h2 {
+    text-align: center;
+    font-size: 1.875rem; }
 
 .country-detail-image .map {
   float: left;
@@ -336,3 +340,29 @@ body {
   margin-right: 0; }
   .country-detail-image .flag:last-child {
     margin-right: 0; }
+
+.button-wrapper {
+  text-align: center;
+  padding: 1.875rem 0; }
+  .button-wrapper ul li {
+    display: inline-block; }
+
+.button {
+  display: inline-block;
+  -webkit-transition: all 0.15s ease-out 0s;
+  -moz-transition: all 0.15s ease-out 0s;
+  transition: all 0.15s ease-out 0s;
+  background: #40a9b8;
+  border-radius: 6px;
+  color: white;
+  display: inline-block;
+  font-size: 0.875em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 1em;
+  padding: 0.9375rem 1.5625rem;
+  text-align: center;
+  text-transform: uppercase; }
+  .button:hover {
+    background: #257D8B;
+    color: #FFF; }
