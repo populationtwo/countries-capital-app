@@ -1,0 +1,51 @@
+<!-- Country Detail -->
+<div class="country-detail">
+	<div class="country-detail-inner">
+
+		<h2>{{country.countryName}}</h2>
+
+		<div class="country-detail-image">
+			<div class="map">
+				<figure>
+					<img ng-src="http://www.geonames.org/img/country/250/{{map}}.png"></a>
+
+				</figure>
+			</div>
+			<div class="flag">
+				<figure>
+					<img ng-src="http://www.geonames.org/flags/x/{{flag}}.gif">
+				</figure>
+			</div>
+		</div>
+
+		<table class="">
+			<tbody>
+			<tr>
+				<td>Population of Country</td>
+				<td>{{country.population | number}}</td>
+			</tr>
+			<tr>
+				<td>Area</td>
+				<td>{{country.areaInSqKm | number}} km<sup>2</sup></td>
+			</tr>
+			<tr>
+				<td>Capital</td>
+				<td>{{capital.name}}</td>
+			</tr>
+			<tr>
+				<td>Population of Capital</td>
+				<td>{{capital.population | number}}</td>
+			</tr>
+			<tr>
+				<td>{{numNeighbors}} neighbors</td>
+				<td>
+					   <span ng-repeat="neighbor in neighborList">
+              <a ui-sref="countryDetail({countryCode: neighbor.countryCode})">{{neighbor.countryName}}</a><span ng-if=!$last>,</span>
+            </span>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+
+</div>
