@@ -7,12 +7,15 @@ viewsModule.config( function ($routeProvider) {
 
 viewsModule.controller( 'listController', function ($scope, $rootScope, $location, ccCountries) {
 
-	var list = $scope;
-
 	$rootScope.isLoading = true;
 	ccCountries.getCcList().then( function (data) {
-		list.countries = data.data.geonames;
+		$scope.countries = data.data.geonames;
 		$rootScope.isLoading = false;
 	} );
 
+	$scope.getDetails = function(){
+		$location.path('/countries/' + this.country.countryCode);
+	}
+
 } )
+
