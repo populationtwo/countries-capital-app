@@ -9,19 +9,24 @@
 	<title>Countries &amp; Capitals</title>
 </head>
 <body ng-app="cncApp" ng-controller="appCtrl">
-<header>
-	<div class="h1 text-center">Countries &amp; Capitals</div>
-	<div><hr class="style"></div>
-</header>
-<div ui-view></div>
-<footer>
-	<div class="h3 text-center">
-		<p>
-			<button type="button" class="btn btn-default" ng-hide="$state.current.name == 'home'" ng-click="$state.go('home')">Home</button>
-			<button id="BrowseCountries" type="button" class="btn btn-default" ng-hide="$state.current.name == 'countries'" ng-click="$state.go('countries')">Browse Countries</button>
-		</p>
+
+
+<div class="page">
+
+	<div ui-view></div>
+
+	<div class="button-wrapper" >
+		<ul>
+			<li ng-if="nav.current != '/'"><a href="#/">Home</a></li>
+			<li ng-if="nav.current != '/countries'"><a href="#/countries">Browse Countries</a></li>
+		</ul>
+
+		<button type="button" class="btn btn-default" ng-hide="$state.current.name == 'home'" ng-click="$state.go('home')">Home</button>
+		<button id="BrowseCountries" type="button" class="btn btn-default" ng-hide="$state.current.name == 'countries'" ng-click="$state.go('countries')">Browse Countries</button>
 	</div>
-</footer>
+
+</div>
+
 <!-- build:js ./assets/combined.js -->
 <script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>

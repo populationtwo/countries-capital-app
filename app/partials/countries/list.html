@@ -1,13 +1,12 @@
-<div class="container" ng-controller="countriesDataCtrl">
-	<br>
+<div class="countries-list" ng-controller="countriesDataCtrl">
+<br>
 	<div class="col-sm-1"></div>
 	<div class="col-sm-10">
 		<div class="row fixed-table">
 			<div class="input-group">
 				<label for="filter">Filter:&nbsp;</label><input id="filter" type="text" placeholder="Enter filter text">
 			</div>
-			<div class="table-content">
-				<table class="table table-bordered table-striped table-hover table-fixed-header" id="mytable">
+				<table class="table-minimal" id="mytable">
 					<thead class="header">
 					<th>Name</th>
 					<th>Capital</th>
@@ -27,15 +26,6 @@
 					</tr>
 					</tbody>
 				</table>
-			</div>
 		</div>
 	</div>
 </div>
-<script language="javascript" type="text/javascript">
-	// jQuery approach to fixed table headers:
-	//    https://gist.github.com/flaviaza/3763015
-	//  $(document).ready(function(){
-	//    // make the header fixed on scroll
-	//    $('.table-fixed-header').fixedHeader();
-	//  });
-</script>
