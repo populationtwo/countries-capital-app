@@ -16,10 +16,10 @@
 	<div ui-view></div>
 
 	<div class="button-wrapper" >
-		<ul>
-			<li ng-if="nav.current != '/'"><a href="#/">Home</a></li>
-			<li ng-if="nav.current != '/countries'"><a href="#/countries">Browse Countries</a></li>
-		</ul>
+		<!--<ul>-->
+			<!--<li ng-if="nav.current != '/'"><a href="#/">Home</a></li>-->
+			<!--<li ng-if="nav.current != '/countries'"><a href="#/countries">Browse Countries</a></li>-->
+		<!--</ul>-->
 
 		<button type="button" class="btn btn-default" ng-hide="$state.current.name == 'home'" ng-click="$state.go('home')">Home</button>
 		<button id="BrowseCountries" type="button" class="btn btn-default" ng-hide="$state.current.name == 'countries'" ng-click="$state.go('countries')">Browse Countries</button>
@@ -32,7 +32,9 @@
 <script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
 <script type="text/javascript" src="./bower_components/angular-animate/angular-animate.min.js"></script>
 <script type="text/javascript" src="./bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="./bower_components/angular-route/angular-route.js"></script>
 <script type="text/javascript" src="./app.js"></script>
+<script type="text/javascript" src="./cc-nav.js"></script>
 <script type="text/javascript" src="./cc-library.js"></script>
 <script type="text/javascript" src="./partials/countries/list.js"></script>
 <script type="text/javascript" src="./partials/country/detail.js"></script>
