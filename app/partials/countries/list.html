@@ -1,23 +1,22 @@
 <div class="countries-list">
-
-			<table class="table-minimal" id="mytable">
-				<thead class="header">
-				<th>Name</th>
-				<th>Capital</th>
-				<th>Area (km<sup>2</sup>)</th>
-				<th>Population</th>
-				<th>Continent</th>
-				<th>Currency</th>
-				</thead>
-				<tbody class="searchable">
-				<tr ng-repeat="country in countries | orderBy:'countryName'" ui-sref="countryDetail({countryCode: country.countryCode})">
-					<td id={{country.countryCode}}>{{country.countryName}}</td>
-					<td>{{country.capital}}</td>
-					<td class="text-right">{{country.areaInSqKm | number}}</td>
-					<td class="text-right">{{country.population | number}}</td>
-					<td>{{country.continentName}}</td>
-					<td class="text-center">{{country.currencyCode}}</td>
-				</tr>
-				</tbody>
-			</table>
+	<table class="table-minimal tableSection" id="mytable">
+		<thead class="header">
+		<th>Name</th>
+		<th>Capital</th>
+		<th>Area (km<sup>2</sup>)</th>
+		<th>Population</th>
+		<th>Continent</th>
+		<th>Currency</th>
+		</thead>
+		<tbody class="searchable">
+		<tr ng-repeat="country in countries | orderBy:'countryName'" ui-sref="countryDetail({countryCode: country.countryCode})">
+			<td id={{country.countryCode}}>{{country.countryName}}</td>
+			<td>{{country.capital}}</td>
+			<td class="text-right">{{country.areaInSqKm | number}}</td>
+			<td class="text-right">{{country.population | number}}</td>
+			<td>{{country.continentName}}</td>
+			<td class="text-center">{{country.currencyCode}}</td>
+		</tr>
+		</tbody>
+	</table>
 </div>

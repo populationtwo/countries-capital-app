@@ -7,94 +7,103 @@
 body {
 	background: whitesmoke;
 	font-family: 'Raleway', sans-serif;
-	height:100%;
+	height: 100%;
 }
 
-body, html { position:relative; min-height:100%; height:100%;}
+body, html {
+	position: relative;
+	min-height: 100%;
+	height: 100%;
+}
+
 .loading {
-	position:relative;
-	height:100%;
+	position: relative;
+	height: 100%;
 }
+
 .loading:before {
-	position:absolute;
-	content:"";
-	left:0;
-	bottom:0;
-	right:0;
-	top:0;
-	z-index:1000;
-	background:rgba(255,255,255,1) no-repeat center center;
-		background-image: url('../img/245.gif');
+	position: absolute;
+	content: "";
+	left: 0;
+	bottom: 0;
+	right: 0;
+	top: 0;
+	z-index: 1000;
+	background: rgba(255, 255, 255, 1) no-repeat center center;
+	background-image: url('../img/245.gif');
 }
+
 .page {
 	@include outer-container();
 	padding: rem(80) 0;
 }
 
 .view-wrapper {
-	 position:relative; min-height: 100%;
+	position: relative;
+	min-height: 100%;
 
 }
+
 // Intro
 .hero {
-  $base-border-radius: 3px !default;
-  $action-color: #477DCA !default;
-  $large-screen: em(860) !default;
-  $hero-background-top: #7F99BE;
-  $hero-background-bottom: #20392B;
-  $hero-color: white;
-  $gradient-angle: 10deg;
-  $hero-image: '';
+	$base-border-radius: 3px !default;
+	$action-color: #477DCA !default;
+	$large-screen: em(860) !default;
+	$hero-background-top: #7F99BE;
+	$hero-background-bottom: #20392B;
+	$hero-color: white;
+	$gradient-angle: 10deg;
+	$hero-image: '';
 
-  @include background(url($hero-image), linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);
-  background-color: #C0C0C0;
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding-bottom: 3em;
+	@include background(url($hero-image), linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);
+	background-color: #C0C0C0;
+	background-position: top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding-bottom: 3em;
 
-  .hero-logo img {
-    height: 4em;
-    margin-bottom: 1em;
-  }
+	.hero-logo img {
+		height: 4em;
+		margin-bottom: 1em;
+	}
 
-  .hero-inner {
-    @include outer-container;
-    @include clearfix;
-    color: $hero-color;
-    margin: auto;
-    padding: 3.5em;
-    text-align: center;
+	.hero-inner {
+		@include outer-container;
+		@include clearfix;
+		color: $hero-color;
+		margin: auto;
+		padding: 3.5em;
+		text-align: center;
 
-    .hero-copy {
-      text-align: center;
+		.hero-copy {
+			text-align: center;
 
-      h1 {
-        font-size: 1.6em;
-        margin-bottom: 0.5em;
+			h1 {
+				font-size: 1.6em;
+				margin-bottom: 0.5em;
 
-        @include media($large-screen) {
-          font-size: 1.8em;
-        }
-      }
+				@include media($large-screen) {
+					font-size: 1.8em;
+				}
+			}
 
-      p {
-        font-weight: 200;
-        line-height: 1.4em;
-        margin: 0 auto 3em auto;
+			p {
+				font-weight: 200;
+				line-height: 1.4em;
+				margin: 0 auto 3em auto;
 
-        @include media($large-screen) {
-          font-size: 1.1em;
-          max-width: 40%;
-        }
-      }
-    }
+				@include media($large-screen) {
+					font-size: 1.1em;
+					max-width: 40%;
+				}
+			}
+		}
 
-    button {
-      @include button(flat, $action-color);
-      padding: 0.7em 1em;
-    }
-  }
+		button {
+			@include button(flat, $action-color);
+			padding: 0.7em 1em;
+		}
+	}
 }
 
 // Countries list
@@ -171,12 +180,11 @@ body, html { position:relative; min-height:100%; height:100%;}
 	}
 }
 
-
-
 // Country detail
 .country-detail {
 	@include outer-container;
 }
+
 .country-detail-inner {
 	width: 65.88078%;
 	margin: 0 auto;
@@ -187,6 +195,7 @@ body, html { position:relative; min-height:100%; height:100%;}
 		font-size: rem(30);
 	}
 }
+
 .country-detail-image {
 
 	.map {
@@ -205,6 +214,7 @@ body, html { position:relative; min-height:100%; height:100%;}
 		display: inline-block;
 	}
 }
+
 // Buttons
 .button {
 	display: inline-block;
@@ -227,9 +237,6 @@ body, html { position:relative; min-height:100%; height:100%;}
 		color: #FFF;
 	}
 }
-
-
-
 
 .animate-view {
 	&.ng-enter, &.ng-leave {
@@ -263,7 +270,6 @@ body, html { position:relative; min-height:100%; height:100%;}
 	}
 }
 
-
 @keyframes fadeOut {
 	0% {
 		opacity: 1;
@@ -272,7 +278,6 @@ body, html { position:relative; min-height:100%; height:100%;}
 		opacity: 0;
 	}
 }
-
 
 @-webkit-keyframes fadeIn {
 	0% {
@@ -283,6 +288,31 @@ body, html { position:relative; min-height:100%; height:100%;}
 	}
 }
 
+table.tableSection {
+	display: table;
+	width: 100%;
+
+	thead, tbody {
+		float: left;
+		width: 100%;
+	}
+	tbody {
+		overflow: auto;
+		height: rem(400);
+	}
+	thead {
+		padding-right: rem(15);
+	}
+	tr {
+		width: 100%;
+		display: table;
+		text-align: left;
+	}
+	th, td {
+		width: 16.666667%;
+	}
+
+}
 
 @keyframes fadeIn {
 	0% {

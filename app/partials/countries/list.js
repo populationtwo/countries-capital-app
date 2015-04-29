@@ -15,6 +15,4 @@ angular.module( 'ccApp' ).controller( 'listController',
 
 				$rootScope.isLoading = false;
 			} );
-
-
 		}] );

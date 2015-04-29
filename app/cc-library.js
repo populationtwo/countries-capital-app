@@ -1,10 +1,10 @@
 angular.module( 'ccApp' ).service( 'ccLibraryService',
 	['$http', '$q',
-		function ($http, $q ) {
+		function ($http, $q) {
 			var username = "hanoman_sakti";
 			var APIUrl = "http://api.geonames.org/";
 
-			this.getCountries = function() {
+			this.getCountries = function () {
 				var d = $q.defer();
 				var url = APIUrl + "countryInfoJSON";
 				var request = {
@@ -16,7 +16,7 @@ angular.module( 'ccApp' ).service( 'ccLibraryService',
 					url   : url,
 					params: request,
 					cache : true
-				} ).success( function (data, status, headers, config ) {
+				} ).success( function (data, status, headers, config) {
 					if (typeof data.status == 'object') {
 						console.log( "Encountered and error requesting country data: \r\n'" +
 						data.status.message + "'" );
@@ -38,7 +38,7 @@ angular.module( 'ccApp' ).service( 'ccLibraryService',
 				return d.promise;
 			};
 
-			this.getNeighbors = function(countryCode) {
+			this.getNeighbors = function (countryCode) {
 				var d = $q.defer();
 				var url = APIUrl + "neighboursJSON";
 				var request = {
@@ -60,7 +60,7 @@ angular.module( 'ccApp' ).service( 'ccLibraryService',
 				return d.promise;
 			};
 
-			this.getCapital = function(countryCode) {
+			this.getCapital = function (countryCode) {
 				var d = $q.defer();
 				var url = APIUrl + "searchJSON";
 				var request = {

@@ -444,6 +444,24 @@ body, html {
   100% {
     opacity: 1; } }
 
+table.tableSection {
+  display: table;
+  width: 100%; }
+  table.tableSection thead, table.tableSection tbody {
+    float: left;
+    width: 100%; }
+  table.tableSection tbody {
+    overflow: auto;
+    height: 25rem; }
+  table.tableSection thead {
+    padding-right: 0.9375rem; }
+  table.tableSection tr {
+    width: 100%;
+    display: table;
+    text-align: left; }
+  table.tableSection th, table.tableSection td {
+    width: 16.66667%; }
+
 @keyframes fadeIn {
   0% {
     opacity: 0; }
