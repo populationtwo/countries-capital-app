@@ -1,105 +1,86 @@
-angular.module( 'ccLibrary', [] )
-
-	.constant( 'GEONAMES_API_PREFIX', 'http://api.geonames.org' )
-	.constant( 'COUNTRY_INFO', '/countryInfoJSON' )
-	.constant( 'USER', '?username=hanoman_sakti' )
-	.constant( 'CC_SEARCH', '/searchJSON?q={{ q }}&country={{ country }}&name_equals={{name_equals }}&isNameRequired={{ isNameRequired }}' )
-	.constant('CC_NEIGHBOURS', '/neighboursJSON?geonameId={{ geonameId }}')
-
-
-	.service( 'ccCountries', ['$location', '$http', '$q', '$interpolate', 'GEONAMES_API_PREFIX', 'COUNTRY_INFO', 'USER',
-		function ($location, $http, $q, $interpolate, GEONAMES_API_PREFIX, COUNTRY_INFO, USER) {
-			var _countries = null;
-
-			this.getCcList = function () {
-				var path = GEONAMES_API_PREFIX + COUNTRY_INFO + USER;
-				return $http.get( path, {cache: true} )
-					.success( function (data) {
-						if (_countries === null) {
-							_countries = [];
-							angular.forEach( data.geonames, function (country) {
-								_countries[country.countryCode] = country;
-							} );
+angular.module('cncApp').factory('geonamesFactory',
+	['$http', '$q',
+		function($http, $q){
+			var username = "mjhea0";
+			var PrimaryUrl = "http://api.geonames.org/";
+			return {
+				getCountriesInfo: function(){
+					var d = $q.defer();
+					var url = PrimaryUrl + "countryInfoJSON";
+					var request = {
+						callback: 'JSON_CALLBACK',
+						username: username
+					};
+					$http({
+						method: 'JSONP',
+						url: url,
+						params: request,
+						cache: true
+					}).success(function(data, status, headers, config) {
+						if(typeof data.status == 'object') {
+							alert("Encountered and error requesting country data: \r\n'" +
+							data.status.message + "'");
+							d.reject(data.status);
+						} else {
+							//Creating a countries index value pair: countryCode,
+							//index of the country in the countries array.
+							data.index = {};
+							for (i=0; i<data.geonames.length; i++) {
+								data.index[data.geonames[i].countryCode]=i;
+							}
+							//Return both the index object and countries array:
+							d.resolve(data);
 						}
-					} )
-					.error( function (data, status) {
-						console.log( 'Error status: ' + status );
-						$location.path( '/error' );
-					} );
-			}
-
-			this.getCcDetails = function (code) {
-				var defer = $q.defer();
-				defer.resolve( _countries[code] );
-				return defer.promise;
-			}
-
-		}] )
-
-	.factory( 'ccRequest', function ($http, $q, GEONAMES_API_PREFIX, USER) {
-		return function (path) {
-			var defer = $q.defer();
-
-			$http.get( GEONAMES_API_PREFIX + path + USER )
-				.success( function (data) {
-					defer.resolve( data );
-				} )
-				.error( function (data, status) {
-					console.log( 'Error status: ' + status );
-					$location.path( '/error' );
-				} );
-
-			return defer.promise;
-		}
-
-	} )
-
-	.factory( 'ccCapitalReq', ['$interpolate', 'ccRequest', 'CC_SEARCH',
-		function ($interpolate, ccRequest, CC_SEARCH) {
-			return function (code, name) {
-				var path = $interpolate( CC_SEARCH )( {
-					q             : name,
-					country       : code,
-					name_equals   : name,
-					isNameRequired: false
-				} );
-				//console.log(path);
-				return ccRequest( path );
-			};
-		}] )
-
-	.factory('ccCapPopulation', function(){
-		return function(data){
-			var population = 0;
-			for(var i=0; i<data.geonames.length; i++){
-				if(data.geonames[i].fcodeName.indexOf('capital') > -1){
-					population = data.geonames[i].population;
+					}).error(function(data, status, headers, config) {
+						alert(status + " error attempting to access geonames.org.");
+						d.reject();
+					});
+					return d.promise;
+				},
+				getNeighbors: function(countryCode){
+					var d = $q.defer();
+					var url = PrimaryUrl + "neighboursJSON";
+					var request = {
+						callback: 'JSON_CALLBACK',
+						country: countryCode,
+						username: username
+					};
+					$http({
+						method: 'JSONP',
+						url: url,
+						params: request,
+						cache: true
+					}).success(function(data, status, headers, config) {
+						d.resolve(data);
+					}).error(function(data, status, headers, config) {
+						alert(status + " error attempting to access geonames.org.");
+						d.reject();
+					});
+					return d.promise;
+				},
+				getCapitalInfo: function(countryCode) {
+					var d = $q.defer();
+					var url = PrimaryUrl + "searchJSON";
+					var request = {
+						callback: 'JSON_CALLBACK',
+						q: "capital",
+						formatted: true,
+						country: countryCode,
+						maxRows: 1,
+						username: username
+					};
+					$http({
+						method: 'JSONP',
+						url: url,
+						params: request,
+						cache: true
+					}).success(function(data, status, headers, config){
+						d.resolve(data.geonames[0]);
+					}).error(function(data, status, headers, config){
+						alert(status + " error attempting to access geonames.org.");
+						d.reject();
+					});
+					return d.promise;
 				}
-			}
-			return population;
-		};
-	})
-
-	.factory('ccNeighborsReq', ['$interpolate', 'ccRequest', 'CC_NEIGHBOURS',
-		function($interpolate, ccRequest, CC_NEIGHBOURS){
-			return function(id){
-				var path = $interpolate(CC_NEIGHBOURS)({
-					geonameId: id
-
-				});
-				return ccRequest(path);
 			};
-		}])
-
-	.factory('ccNeighbors', function(){
-		return function(data){
-			var neighbors = [];
-			for(var i=0; i<data.geonames.length; i++){
-				neighbors.push({
-					countryCode: data.geonames[i].countryCode,
-					countryName: data.geonames[i].countryName,
-				});
-			}
-			return neighbors;
-		};
-	})
+		}]);

@@ -1,22 +1,25 @@
-viewsModule.config( function ($routeProvider) {
-	$routeProvider.when( '/countries/:country', {
-		templateUrl: './partials/country/detail.html',
-		controller : 'detailController'
-	} )
-} )
-
-viewsModule.controller( 'detailController', function ($scope, $routeParams, ccCapitalReq,ccCountries, ccCapPopulation, ccNeighborsReq, ccNeighbors) {
-	ccCountries.getCcDetails( $routeParams.country ).then( function (data) {
-
-		$scope.country = data;
-		ccCapitalReq(data.countryCode, data.countryName).then(function(data){
-			$scope.country.capital_pop = ccCapPopulation(data);
-		});
-		ccNeighborsReq(data.geonameId).then(function(ndata){
-			$scope.country.neighbors = ccNeighbors(ndata);
-		});
-	} )
-
-
-} )
-
+angular.module('cncApp').controller('detailCtrl',
+	['$scope', 'cncData', '$state', '$stateParams', '$q',
+		function($scope, cncData, $state, $stateParams, $q){
+			var detailCountry = $stateParams.countryCode.toUpperCase();
+			//Get the countries data if not already available:
+			//This enables entering the app directly into a detail view.
+			$q.when(cncData.countries).then(function(result){
+				//If cncData.countries is still a promise...
+				if(toString.call(cncData.countries)=='[object Object]') {
+					//...replace it with the returned array.
+					cncData.countries = result.geonames;
+					cncData.index = result.index;
+				}
+				$scope.country = cncData.countries[cncData.index[detailCountry]];
+			});
+			$scope.flag = detailCountry.toLowerCase();
+			$scope.map = detailCountry;
+			cncData.getCapitalInfo(detailCountry).then(function(result){
+				$scope.capital = result;
+			});
+			cncData.getNeighbors(detailCountry).then(function(result){
+				$scope.numNeighbors = result.totalResultsCount;
+				$scope.neighborList = result.geonames;
+			});
+		}]);

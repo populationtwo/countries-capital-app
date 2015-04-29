@@ -1,38 +1,37 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html>
 <head>
-	<meta charset='UTF-8' />
-	<title>Countries &amp; Capital App</title>
+	<!-- build:css ./assets/combined.css -->
+	<link rel="stylesheet" href="./css/main.css">
 
-	<link rel="stylesheet" type="text/css" href="./css/main.css" />
-
-
+	<!-- endbuild -->
+	<meta charset='UTF-8'>
+	<title>Countries &amp; Capitals</title>
 </head>
-<body ng-app="myApp">
-
-<div class="page">
-
-	<div ng-view></div>
-
-	<div class="button-wrapper" ng-controller="navController">
-		<ul>
-			<li ng-if="nav.current != '/'"><a href="#/">Home</a></li>
-			<li ng-if="nav.current != '/countries'"><a href="#/countries">Browse Countries</a></li>
-		</ul>
+<body ng-app="cncApp" ng-controller="appCtrl">
+<header>
+	<div class="h1 text-center">Countries &amp; Capitals</div>
+	<div><hr class="style"></div>
+</header>
+<div ui-view></div>
+<footer>
+	<div class="h3 text-center">
+		<p>
+			<button type="button" class="btn btn-default" ng-hide="$state.current.name == 'home'" ng-click="$state.go('home')">Home</button>
+			<button id="BrowseCountries" type="button" class="btn btn-default" ng-hide="$state.current.name == 'countries'" ng-click="$state.go('countries')">Browse Countries</button>
+		</p>
 	</div>
-
-</div>
-<script src="./bower_components/jquery/dist/jquery.js"></script>
-<script src="./bower_components/angular/angular.js"></script>
-<script src="./bower_components/angular-route/angular-route.js"></script>
-<!--<script src="./bower_components/angular-animate/angular-animate.js"></script>-->
-<script src="./cc-library.js"></script>
-<script src="./cc-nav.js"></script>
-<script src="./cc-app-views.js"></script>
-<script src="./partials/home/home.js"></script>
-<script src="./partials/countries/list.js"></script>
-<script src="./partials/country/detail.js"></script>
-<script src="./app.js"></script>
-
+</footer>
+<!-- build:js ./assets/combined.js -->
+<script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="./bower_components/angular-animate/angular-animate.min.js"></script>
+<script type="text/javascript" src="./bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="./app.js"></script>
+<script type="text/javascript" src="./cc-library.js"></script>
+<script type="text/javascript" src="./partials/countries/list.js"></script>
+<script type="text/javascript" src="./partials/country/detail.js"></script>
+<!-- endbuild -->
+<!--  // <script type="text/javascript" src="./partials/countries/table-fixed-header.js"></script> -->
 </body>
 </html>

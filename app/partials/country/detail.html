@@ -1,48 +1,46 @@
-
-<!-- Country Detail -->
-<div class="country-detail">
-	<div class="country-detail-inner">
-
-
-		<h2>USA</h2>
-
-		<div class="country-detail-image">
-			<div class="map">
-				<figure>
-					<img src="http://placehold.it/400x300" alt="" />
-				</figure>
-			</div>
-			<div class="flag">
-				<figure>
-					<img src="http://placehold.it/400x300" alt="" />
-				</figure>
-			</div>
+<div class="countainer row text-center">
+	<div class="row">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-10">
+			<table class="table">
+				<tr>
+					<p class="h1">{{country.countryName}}&nbsp;</p>
+				</tr>
+				<tr>
+					<td class="col-xs-6 text-right">Population of Country:</td>
+					<td class="col-xs-6 text-left">{{country.population | number}}</td>
+				</tr>
+				<tr>
+					<td class="text-right">Area:</td>
+					<td class="text-left">{{country.areaInSqKm | number}} km<sup>2</sup></td>
+				</tr>
+				<tr>
+					<td class="text-right">Capital:</td>
+					<td class="text-left"><a href="http://www.google.com/maps/place/{{capital.name}}">{{capital.name}}</a></td>
+				</tr>
+				<tr>
+					<td class="text-right">Population of Capital:</td>
+					<td class="text-left">{{capital.population | number}}</td>
+				</tr>
+				<tr>
+					<td class="text-right">{{numNeighbors}} neighbors:</td>
+					<td class="text-left">
+            <span ng-repeat="neighbor in neighborList">
+              <a ui-sref="countryDetail({countryCode: neighbor.countryCode})">{{neighbor.countryName}}</a><span ng-if=!$last>,</span>
+            </span>
+					</td>
+				</tr>
+			</table>
 		</div>
-
-		<table class="">
-			<tbody>
-			<tr>
-				<td>Population of Country</td>
-				<td>313000000</td>
-			</tr>
-			<tr>
-				<td>Area</td>
-				<td>9147000 square km</td>
-			</tr>
-			<tr>
-				<td>Capital</td>
-				<td>Washington DC</td>
-			</tr>
-			<tr>
-				<td>Population of Capital</td>
-				<td>632.233</td>
-			</tr>
-			<tr>
-				<td>3 neighbors</td>
-				<td><a href="">Canada</a>, <a href="">Cuba</a>, <a href="">Mexico</a></td>
-			</tr>
-			</tbody>
-		</table>
 	</div>
-
+	<div class="row">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-5 fixed text-right">
+			<a href="http://www.google.com/maps/place/{{country.countryName}}">
+				<img ng-src="http://www.geonames.org/img/country/250/{{map}}.png"></a>
+		</div>
+		<div class="col-xs-6 fixed text-left">
+			<img class="flag" ng-src="http://www.geonames.org/flags/x/{{flag}}.gif">
+		</div>
+	</div>
 </div>
