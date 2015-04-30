@@ -13,15 +13,14 @@
 <div class="page">
 
 	<div class="view-wrapper">
-		<div ui-view class="animate-view"></div>
-
+		<div ng-view class="animate-view"></div>
 	</div>
 
 	<div class="button-wrapper">
 		<ul>
-			<li ng-hide="$state.current.name == 'home'" ng-click="$state.go('home')">
+			<li ng-hide="$state.current.name == 'home'" >
 				<a href="#/" class="button">Home</a></li>
-			<li ng-hide="$state.current.name == 'countries'" ng-click="$state.go('countries')">
+			<li ng-hide="$state.current.name == 'countries'">
 				<a href="#/countries" class="button">Browse
 					Countries</a></li>
 		</ul>
@@ -33,7 +32,7 @@
 <script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
 <script type="text/javascript" src="./bower_components/angular-animate/angular-animate.min.js"></script>
-<script type="text/javascript" src="./bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="./bower_components/angular-route/angular-route.js"></script>
 <script type="text/javascript" src="./app.js"></script>
 <script type="text/javascript" src="./cc-library.js"></script>
 <script type="text/javascript" src="./partials/countries/list.js"></script>

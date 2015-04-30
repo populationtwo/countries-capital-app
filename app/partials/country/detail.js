@@ -1,7 +1,9 @@
 angular.module( 'ccApp' ).controller( 'detailController',
-	['$scope', 'cncData', '$state', '$stateParams', '$q',
-		function ($scope, cncData, $state, $stateParams, $q) {
-			var detailCountry = $stateParams.countryCode.toUpperCase();
+	['$scope', 'cncData', '$q', '$route',
+		function ($scope, cncData, $q, $route) {
+			$route.current.params.city
+
+			var detailCountry = $route.current.params.countryCode.toUpperCase();
 			//Get the countries data if not already available:
 			//This enables entering the app directly into a detail view.
 			$q.when( cncData.countries ).then( function (result) {

@@ -9,7 +9,7 @@
 		<th>Currency</th>
 		</thead>
 		<tbody class="searchable">
-		<tr ng-repeat="country in countries | orderBy:'countryName'" ui-sref="countryDetail({countryCode: country.countryCode})">
+		<tr ng-repeat="country in countries | orderBy:'countryName'" ng-click="countryDetail(country.countryCode)">
 			<td id={{country.countryCode}}>{{country.countryName}}</td>
 			<td>{{country.capital}}</td>
 			<td class="text-right">{{country.areaInSqKm | number}}</td>
