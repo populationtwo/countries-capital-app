@@ -1,43 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<!-- build:css ./assets/combined.css -->
-	<link rel="stylesheet" href="./css/main.css">
-	<!-- endbuild -->
-
-	<meta charset='UTF-8'>
-	<title>Countries &amp; Capitals</title>
-</head>
-<body ng-app="ccApp" ng-controller="appCtrl" ng-class="{loading: isLoading}">
-
-<div class="page">
-
-	<div class="view-wrapper">
-		<div ng-view class="animate-view"></div>
-	</div>
-
-	<div class="button-wrapper">
-		<ul>
-			<li ng-hide="$state.current.name == 'home'" >
-				<a href="#/" class="button">Home</a></li>
-			<li ng-hide="$state.current.name == 'countries'">
-				<a href="#/countries" class="button">Browse
-					Countries</a></li>
-		</ul>
-	</div>
-
-</div>
-
-<!-- build:js ./assets/combined.js -->
-<script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
-<script type="text/javascript" src="./bower_components/angular-animate/angular-animate.min.js"></script>
-<script type="text/javascript" src="./bower_components/angular-route/angular-route.js"></script>
-<script type="text/javascript" src="./app.js"></script>
-<script type="text/javascript" src="./cc-library.js"></script>
-<script type="text/javascript" src="./partials/countries/list.js"></script>
-<script type="text/javascript" src="./partials/country/detail.js"></script>
-
-<!-- endbuild -->
-</body>
+    <head>
+        <!-- build:css ./assets/combined.css -->
+        <link rel="stylesheet" href="./css/main.css">
+        <!-- endbuild -->
+        <meta charset='UTF-8'>
+        <title>Countries &amp; Capitals</title>
+    </head>
+    <body ng-app="ccApp" ng-controller="appCtrl" ng-class="{loading: isLoading}">
+        <div class="page">
+            <div class="view-wrapper">
+                <div ng-view class="animate-view"></div>
+            </div>
+            <div class="button-wrapper" ng-controller="NavCtrl">
+                <ul>
+                    <li ng-if="nav.current != '/'"><a role="button" class="button" href="#/">Home</a></li>
+                    <li ng-if="nav.current != '/countries'"><a role="button" class="button" href="#/countries">Browse Countries</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- build:js ./assets/combined.js -->
+        <script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
+        <script type="text/javascript" src="./bower_components/angular-animate/angular-animate.min.js"></script>
+        <script type="text/javascript" src="./bower_components/angular-route/angular-route.js"></script>
+        <script type="text/javascript" src="./app.js"></script>
+        <script type="text/javascript" src="./cc-library.js"></script>
+        <script type="text/javascript" src="./partials/countries/list.js"></script>
+        <script type="text/javascript" src="./partials/country/detail.js"></script>
+        <!-- endbuild -->
+    </body>
 </html>

@@ -24,6 +24,12 @@ ccApp.controller('appCtrl', ['cncData', '$scope',
         $scope.version = cncData.version;
     }
 ]);
+ccApp.value('ccNavData', {
+    current: null
+});
+ccApp.controller('NavCtrl', ['$scope', 'ccNavData', function($scope, ccNavData){
+    $scope.nav = ccNavData;
+}]);
 ccApp.factory('cncData', ['ccLibraryService',
     function(ccLibraryService) {
         var Data = {};
@@ -35,10 +41,8 @@ ccApp.factory('cncData', ['ccLibraryService',
         return Data;
     }
 ]);
-// ccApp.run(['$rootScope', '$state', '$stateParams', '$location', '$timeout',
-//     function($rootScope, $state, $stateParams, $location, $timeout) {
-//         //This initialization function enables button hiding.
-//         $rootScope.$state = $state;
-//         $rootScope.$stateParams = $stateParams;
-//     }
-// ]);
+ccApp.run(['$rootScope', '$timeout', 'ccNavData', function($rootScope, $timeout, ccNavData){
+    $rootScope.$on('$routeChangeSuccess', function(e, current, pre){
+        ccNavData.current = current.$$route.originalPath;
+    });
+}]);
