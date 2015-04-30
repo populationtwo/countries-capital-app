@@ -17,16 +17,17 @@ ccApp.config(['$routeProvider',
             });
     }
 ]);
-ccApp.controller('appCtrl', ['cncData', '$scope',
-    function(cncData, $scope) {
-        //This controller instantiates cncData which causes the
-        //initial GET of the countries data.
-        $scope.version = cncData.version;
-    }
-]);
+
 ccApp.value('ccNavData', {
     current: null
 });
+
+ccApp.controller('appCtrl', ['cncData', '$scope',
+	function(cncData, $scope) {
+		$scope.version = cncData.version;
+	}
+]);
+
 ccApp.controller('NavCtrl', ['$scope', 'ccNavData', function($scope, ccNavData){
     $scope.nav = ccNavData;
 }]);

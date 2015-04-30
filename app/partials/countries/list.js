@@ -1,8 +1,10 @@
 angular.module('ccApp')
     .controller('listController', ['$scope', 'cncData', '$q', '$rootScope', '$location', '$route',
         function($scope, cncData, $q, $rootScope, $location, $route) {
+
             var toString = Object.prototype.toString;
             $rootScope.isLoading = true;
+
             //Bind the countries data onto $scope when it becomes available:
             $q.when(cncData.countries)
                 .then(function(result) {
