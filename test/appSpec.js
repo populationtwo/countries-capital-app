@@ -41,3 +41,21 @@ describe("ccAppa", function() {
 			}));
 	});
 });
+
+describe('ccData', function() {
+	beforeEach(function() {
+		module('ccApp');
+		module(function($provide) {
+			$provide.value('ccLibraryService', {
+				getCountries: function() {return 'country'},
+				getCapital: function(countryCode) {},
+				getNeighbors: function(countryCode) {}
+			});
+		});
+	});
+	it('should return "Data" when called', function() {
+		inject(function(ccData) {
+			expect(ccData.countries).toEqual('country');
+		})
+	});
+});

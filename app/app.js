@@ -22,16 +22,16 @@ ccApp.value('ccNavData', {
     current: null
 });
 
-ccApp.controller('appCtrl', ['cncData', '$scope',
-	function(cncData, $scope) {
-		$scope.version = cncData.version;
+ccApp.controller('appCtrl', ['ccData', '$scope',
+	function(ccData, $scope) {
+		$scope.version = ccData.version;
 	}
 ]);
 
 ccApp.controller('NavCtrl', ['$scope', 'ccNavData', function($scope, ccNavData){
     $scope.nav = ccNavData;
 }]);
-ccApp.factory('cncData', ['ccLibraryService',
+ccApp.factory('ccData', ['ccLibraryService',
     function(ccLibraryService) {
         var Data = {};
         //Evaluate the getCountries function immediately.
@@ -47,19 +47,3 @@ ccApp.run(['$rootScope', '$timeout', 'ccNavData', function($rootScope, $timeout,
         ccNavData.current = current.$$route.originalPath;
     });
 }]);
-
-
-angular.module("SettingsModule", ["ngRoute"])
-	.config(function($routeProvider) {
-		$routeProvider.when('/settings', {
-			controller : "SettingsCtrl",
-			templateUrl : "settings.html",
-			resolve : {
-				currentUser : function($http) {
-					return $http.get("/api/current-user");
-				}
-			}
-		});
-	})
-	.controller("SettingsCtrl", function(currentUser) {
-	});
