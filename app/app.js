@@ -22,15 +22,10 @@ ccApp.value('ccNavData', {
     current: null
 });
 
-ccApp.controller('appCtrl', ['ccData', '$scope',
-	function(ccData, $scope) {
-		$scope.version = ccData.version;
-	}
-]);
-
 ccApp.controller('NavCtrl', ['$scope', 'ccNavData', function($scope, ccNavData){
     $scope.nav = ccNavData;
 }]);
+
 ccApp.factory('ccData', ['ccLibraryService',
     function(ccLibraryService) {
         var Data = {};
@@ -42,8 +37,9 @@ ccApp.factory('ccData', ['ccLibraryService',
         return Data;
     }
 ]);
+
 ccApp.run(['$rootScope', '$timeout', 'ccNavData', function($rootScope, $timeout, ccNavData){
-    $rootScope.$on('$routeChangeSuccess', function(e, current, pre){
+    $rootScope.$on('$routeChangeSuccess', function(e, current){
         ccNavData.current = current.$$route.originalPath;
     });
 }]);

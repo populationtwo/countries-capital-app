@@ -1,10 +1,9 @@
-describe("ccAppa", function() {
+describe("ccApp", function() {
 
 	beforeEach(function() {
 		module('ccApp');
 		inject(function(_$rootScope_,  _$injector_, $templateCache) {
 			$rootScope = _$rootScope_;
-			//$state = _$state_;
 			$injector = _$injector_;
 			$templateCache.put('partials/countries/list.html', '');
 			$templateCache.put('partials/country/detail.html', '');
@@ -21,7 +20,6 @@ describe("ccAppa", function() {
 				});
 				expect($route.current.controller).toBe("listController");
 				expect($route.current.loadedTemplateUrl).toBe("partials/countries/list.html");
-
 
 				$httpBackend.whenGET('partials/country/detail.html');
 				$rootScope.$apply(function() {
@@ -40,6 +38,7 @@ describe("ccAppa", function() {
 				$httpBackend.verifyNoOutstandingExpectation();
 			}));
 	});
+
 });
 
 describe('ccData', function() {
