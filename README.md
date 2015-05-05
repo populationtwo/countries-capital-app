@@ -2,7 +2,7 @@
 
 A simple static angular application built with angular to display country and capital city information.
 
-The application makes use of Geonames.org API.
+The application uses Geonames.org API.
 
 ## Installation
 
@@ -14,6 +14,11 @@ The application makes use of Geonames.org API.
 
 4. Open at `localhost:8080`.
 
-## Packaging the website
+## Development
 
 Run `gulp build`. The contents will be created inside of `build/`.
+
+## Testing
+
+1. `npm install -g karma-cli`
+2. `karma start karma.conf.js`
